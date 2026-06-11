@@ -11,8 +11,8 @@
 | # | App | Status | Package |
 |---|-----|--------|---------|
 | 01 | [PDF OCR Desk](./apps/01-pdf-ocr-desk) | ✅ Ready | com.kartdev.pdfocrdesk |
-| 02 | PDF Master Kit | 🔜 Next | com.kartdev.pdfmasterkit |
-| 03 | File Rename Factory | 📋 Planned | — |
+| 02 | [PDF Master Kit](./apps/02-pdf-master-kit) | ✅ Ready | com.kartdev.pdfmasterkit |
+| 03 | File Rename Factory | 🔜 Next | — |
 | 04 | Invoice PDF Builder | 📋 Planned | — |
 | 05 | QR Barcode Studio | 📋 Planned | — |
 | 06 | Clipboard Vault Pro | 📋 Planned | — |
