@@ -13,8 +13,8 @@
 | 01 | [PDF OCR Desk](./apps/01-pdf-ocr-desk) | ✅ Ready | com.kartdev.pdfocrdesk |
 | 02 | [PDF Master Kit](./apps/02-pdf-master-kit) | ✅ Ready | com.kartdev.pdfmasterkit |
 | 03 | [File Rename Factory](./apps/03-file-rename-factory) | ✅ Ready | com.kartdev.filerenameFactory |
-| 04 | Invoice PDF Builder | 🔜 Next | — |
-| 05 | QR Barcode Studio | 📋 Planned | — |
+| 04 | [Invoice PDF Builder](./apps/04-invoice-pdf-builder) | ✅ Ready | com.kartdev.invoicepdfbuilder |
+| 05 | QR Barcode Studio | 🔜 Next | — |
 | 06 | Clipboard Vault Pro | 📋 Planned | — |
 | 07 | Duplicate File Finder | 📋 Planned | — |
 | 08 | Product Listing Builder | 📋 Planned | — |
