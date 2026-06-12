@@ -14,8 +14,8 @@
 | 02 | [PDF Master Kit](./apps/02-pdf-master-kit) | ✅ Ready | com.kartdev.pdfmasterkit |
 | 03 | [File Rename Factory](./apps/03-file-rename-factory) | ✅ Ready | com.kartdev.filerenameFactory |
 | 04 | [Invoice PDF Builder](./apps/04-invoice-pdf-builder) | ✅ Ready | com.kartdev.invoicepdfbuilder |
-| 05 | QR Barcode Studio | 🔜 Next | — |
-| 06 | Clipboard Vault Pro | 📋 Planned | — |
+| 05 | [QR Barcode Studio](./apps/05-qr-barcode-studio) | ✅ Ready | com.kartdev.qrbarcodestudio |
+| 06 | Clipboard Vault Pro | 🔜 Next | — |
 | 07 | Duplicate File Finder | 📋 Planned | — |
 | 08 | Product Listing Builder | 📋 Planned | — |
 | 09 | Resume Studio Pro | 📋 Planned | — |
