@@ -27,7 +27,7 @@ export function Sidebar() {
       <div className="flex items-center gap-3 px-4 py-4 border-b" style={{ borderColor: "#2d3748", minHeight: 60 }}>
         <div
           className="flex items-center justify-center rounded-lg flex-shrink-0"
-          style={{ width: 32, height: 32, background: "linear-gradient(135deg,#f97316,#ea580c)" }}
+          style={{ width: 32, height: 32, background: "linear-gradient(135deg,#f59e0b,#d97706)" }}
         >
           <Receipt size={16} color="white" strokeWidth={2.5} />
         </div>
@@ -65,8 +65,8 @@ function SidebarLink({
   return (
     <NavLink
       to={to}
-      className="flex items-center gap-2.5 rounded-md px-2 py-2 text-sm font-medium transition-colors"
-      style={{ color: active ? "#f1f5f9" : "#64748b", background: active ? "rgba(249,115,22,.12)" : "transparent" }}
+      className="nav-link flex items-center gap-2.5 rounded-md px-2 py-2 text-sm font-medium"
+      style={{ color: active ? "#f1f5f9" : "#64748b", background: active ? "rgba(245,158,11,.12)" : "transparent" }}
     >
       <span style={{ color: active ? ACCENT : undefined, flexShrink: 0 }}>
         <Icon size={17} strokeWidth={active ? 2.2 : 1.8} />

@@ -32,7 +32,7 @@ export function Button({ variant = "secondary", size = "md", loading, icon, chil
   return (
     <button
       disabled={disabled || loading}
-      className={`inline-flex items-center justify-center font-medium rounded-md transition-all duration-100 cursor-pointer select-none disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0 ${SIZE_CLS[size]}`}
+      className={`btn-press inline-flex items-center justify-center font-medium rounded-md cursor-pointer select-none disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0 ${SIZE_CLS[size]}`}
       style={{ ...VARIANT_STYLE[variant], ...style }}
       {...rest}
     >
@@ -48,7 +48,7 @@ export function Card({ children, className = "", style, onClick }: {
   return (
     <div
       onClick={onClick}
-      className={`rounded-xl border p-5 ${onClick ? "cursor-pointer transition-all duration-100 hover:-translate-y-px" : ""} ${className}`}
+      className={`rounded-xl border p-5 ${onClick ? "cursor-pointer card-lift" : ""} ${className}`}
       style={{ background: "#161b27", borderColor: "#2d3748", ...style }}
     >
       {children}

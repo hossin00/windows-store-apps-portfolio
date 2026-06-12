@@ -2,6 +2,11 @@ import React from "react";
 import { Loader2, AlertTriangle, type LucideIcon } from "lucide-react";
 import type { OCRStatus } from "../types";
 
+// Accent palette for this app: blue-500
+export const ACCENT      = "#3b82f6";
+export const ACCENT_SOFT = "#60a5fa";
+export const ACCENT_DEEP = "#1d4ed8";
+
 // ─── Button ───────────────────────────────────────────────────────────────────
 type BtnVariant = "primary" | "secondary" | "ghost" | "danger";
 type BtnSize    = "sm" | "md" | "lg";
@@ -29,7 +34,7 @@ export function Button({ variant = "secondary", size = "md", loading, icon, chil
   return (
     <button
       disabled={disabled || loading}
-      className={`inline-flex items-center justify-center font-medium rounded-md transition-all duration-100 cursor-pointer select-none disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0 ${SIZE_CLS[size]}`}
+      className={`btn-press inline-flex items-center justify-center font-medium rounded-md cursor-pointer select-none disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0 ${SIZE_CLS[size]}`}
       style={{ ...VARIANT_STYLE[variant], ...style }}
       {...rest}
     >
@@ -46,7 +51,7 @@ export function Card({ children, className = "", style, onClick }: {
   return (
     <div
       onClick={onClick}
-      className={`rounded-xl border p-5 ${onClick ? "cursor-pointer transition-all duration-100 hover:-translate-y-px" : ""} ${className}`}
+      className={`rounded-xl border p-5 ${onClick ? "cursor-pointer card-lift" : ""} ${className}`}
       style={{ background: "#161b27", borderColor: "#2d3748", ...style }}
     >
       {children}
@@ -114,19 +119,22 @@ export function StatusBadge({ status }: { status: OCRStatus }) {
 }
 
 // ─── EmptyState ───────────────────────────────────────────────────────────────
-export function EmptyState({ icon: Icon, title, description, action }: {
+export function EmptyState({ icon: Icon, illustration, title, description, action }: {
   icon?: LucideIcon;
+  illustration?: React.ReactNode;
   title: string; description?: string; action?: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col items-center justify-center py-16 px-8 text-center">
-      {Icon && (
+    <div className="flex flex-col items-center justify-center py-14 px-8 text-center animate-fade-in">
+      {illustration ? (
+        <div className="mb-5">{illustration}</div>
+      ) : Icon ? (
         <div className="rounded-2xl p-4 mb-4" style={{ background: "rgba(59,130,246,.08)", color: "#3b82f6" }}>
           <Icon size={28} strokeWidth={1.5} />
         </div>
-      )}
-      <p className="font-semibold mb-1" style={{ color: "#f1f5f9" }}>{title}</p>
-      {description && <p className="text-sm mb-4 max-w-xs leading-relaxed" style={{ color: "#64748b" }}>{description}</p>}
+      ) : null}
+      <p className="text-base font-semibold mb-1.5" style={{ color: "#f1f5f9" }}>{title}</p>
+      {description && <p className="text-sm mb-5 max-w-sm leading-relaxed" style={{ color: "#64748b" }}>{description}</p>}
       {action}
     </div>
   );

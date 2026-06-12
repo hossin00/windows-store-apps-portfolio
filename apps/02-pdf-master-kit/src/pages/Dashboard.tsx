@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   Combine, Scissors, Minimize2, RotateCw, ArrowUpDown, FileSearch,
-  Clock, Shield, FileText, ArrowRight, Zap,
+  Clock, Shield, FileText, ArrowRight, Zap, Sparkles,
 } from "lucide-react";
 import { Topbar } from "../components/Topbar";
-import { StatCard, Card, Button, Badge } from "../components/UI";
-import { getStats, getHistory } from "../services/localStorageService";
+import { StatCard, Card, Button, Badge, ACCENT } from "../components/UI";
+import { ActivityChart } from "../components/ActivityChart";
+import { getStats, getHistory, getFirstUseDate } from "../services/localStorageService";
 import type { HistoryEntry } from "../types";
-import { formatDistanceToNow } from "date-fns";
+import { formatDistanceToNow, differenceInCalendarDays } from "date-fns";
 
 const KIND_LABEL: Record<HistoryEntry["kind"], string> = {
   merge: "Merge", split: "Split", compress: "Compress",
@@ -19,13 +20,52 @@ export function Dashboard() {
   const nav = useNavigate();
   const [stats,  setStats]  = useState({ operationsRun: 0, pagesProcessed: 0, filesProcessed: 0 });
   const [recent, setRecent] = useState<HistoryEntry[]>([]);
+  const [history, setHistory] = useState<HistoryEntry[]>([]);
+  const [firstUse, setFirstUse] = useState<string>("");
 
-  useEffect(() => { setStats(getStats()); setRecent(getHistory().slice(0, 5)); }, []);
+  useEffect(() => {
+    setStats(getStats());
+    const all = getHistory();
+    setHistory(all);
+    setRecent(all.slice(0, 5));
+    setFirstUse(getFirstUseDate());
+  }, []);
+
+  const daysWithUs = firstUse ? Math.max(0, differenceInCalendarDays(new Date(), new Date(firstUse))) : 0;
+  const hour = new Date().getHours();
+  const greeting = hour < 5 ? "Up early" : hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
+  const activityTs = history.map((h) => h.createdAt);
 
   return (
     <div className="flex flex-col h-full" style={{ background: "#0f1117" }}>
       <Topbar title="Dashboard" subtitle="PDF Master Kit" />
       <div className="flex-1 overflow-y-auto p-6 space-y-6">
+
+        {/* Welcome banner */}
+        <Card style={{
+          background: "linear-gradient(135deg, rgba(139,92,246,0.10), rgba(124,58,237,0.06))",
+          borderColor: "rgba(139,92,246,0.25)",
+        }}>
+          <div className="flex items-center gap-4">
+            <div className="rounded-xl flex items-center justify-center flex-shrink-0"
+              style={{ width: 44, height: 44, background: `linear-gradient(135deg,${ACCENT},#7c3aed)` }}>
+              <Sparkles size={20} color="#ffffff" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-base font-semibold" style={{ color: "#f1f5f9" }}>{greeting} — welcome back</p>
+              <p className="text-xs mt-0.5" style={{ color: "#94a3b8" }}>
+                {daysWithUs === 0
+                  ? "Glad you're here on day one."
+                  : `Day ${daysWithUs + 1} with PDF Master Kit · ${stats.operationsRun} operation${stats.operationsRun !== 1 ? "s" : ""} run so far`}
+              </p>
+            </div>
+          </div>
+        </Card>
+
+        {/* Activity chart */}
+        <Card>
+          <ActivityChart timestamps={activityTs} label="Activity — last 7 days" />
+        </Card>
 
         <div className="grid grid-cols-3 gap-4">
           <StatCard label="Operations Run"  value={stats.operationsRun}  icon={<Zap size={18} />} accent />
@@ -54,9 +94,9 @@ export function Dashboard() {
             </Card>
           </div>
 
-          <Card style={{ background: "rgba(59,130,246,.06)", borderColor: "rgba(59,130,246,.2)" }}>
+          <Card style={{ background: "rgba(139,92,246,.06)", borderColor: "rgba(139,92,246,.2)" }}>
             <div className="flex items-center gap-2 mb-3">
-              <Shield size={16} style={{ color: "#3b82f6" }} />
+              <Shield size={16} style={{ color: "#8b5cf6" }} />
               <span className="text-sm font-semibold" style={{ color: "#f1f5f9" }}>Privacy-First</span>
             </div>
             <ul className="space-y-2 mb-4">
@@ -67,7 +107,7 @@ export function Dashboard() {
               ))}
             </ul>
             <Button variant="ghost" size="sm" onClick={() => nav("/privacy")}
-              style={{ color: "#3b82f6", paddingLeft: 0 }}>
+              style={{ color: "#8b5cf6", paddingLeft: 0 }}>
               Privacy details <ArrowRight size={13} />
             </Button>
           </Card>
@@ -76,14 +116,14 @@ export function Dashboard() {
         <div>
           <div className="flex items-center justify-between mb-3">
             <p className="text-sm font-semibold" style={{ color: "#f1f5f9" }}>Recent Operations</p>
-            <Button variant="ghost" size="sm" onClick={() => nav("/history")} style={{ color: "#3b82f6" }}>
+            <Button variant="ghost" size="sm" onClick={() => nav("/history")} style={{ color: "#8b5cf6" }}>
               View all <ArrowRight size={13} />
             </Button>
           </div>
           {recent.length === 0 ? (
             <Card>
               <div className="flex flex-col items-center py-8 text-center gap-3">
-                <div className="rounded-xl p-3" style={{ background: "rgba(59,130,246,.08)", color: "#3b82f6" }}>
+                <div className="rounded-xl p-3" style={{ background: "rgba(139,92,246,.08)", color: "#8b5cf6" }}>
                   <Zap size={22} strokeWidth={1.5} />
                 </div>
                 <div>
@@ -101,7 +141,7 @@ export function Dashboard() {
                   style={{ borderBottom: i < recent.length - 1 ? "1px solid #2d3748" : undefined }}
                   onClick={() => nav("/history")}
                 >
-                  <div className="rounded-lg p-2 flex-shrink-0" style={{ background: "rgba(99,102,241,.1)", color: "#6366f1" }}>
+                  <div className="rounded-lg p-2 flex-shrink-0" style={{ background: "rgba(124,58,237,.1)", color: "#7c3aed" }}>
                     <FileText size={16} strokeWidth={1.8} />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -124,7 +164,7 @@ export function Dashboard() {
 
         <Card>
           <div className="flex items-center gap-2 mb-2">
-            <Clock size={15} style={{ color: "#3b82f6" }} />
+            <Clock size={15} style={{ color: "#8b5cf6" }} />
             <p className="text-sm font-semibold" style={{ color: "#f1f5f9" }}>Powered by pdf-lib</p>
           </div>
           <p className="text-sm leading-relaxed" style={{ color: "#94a3b8" }}>
@@ -143,11 +183,11 @@ function ActionTile({ icon, label, desc, onClick, accent = false }: {
   return (
     <button onClick={onClick}
       className="text-left rounded-lg p-4 border transition-all duration-100"
-      style={{ background: accent ? "rgba(59,130,246,.08)" : "rgba(30,37,53,.6)", borderColor: accent ? "rgba(59,130,246,.25)" : "#2d3748" }}
-      onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "#3b82f6")}
-      onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.borderColor = accent ? "rgba(59,130,246,.25)" : "#2d3748")}
+      style={{ background: accent ? "rgba(139,92,246,.08)" : "rgba(30,37,53,.6)", borderColor: accent ? "rgba(139,92,246,.25)" : "#2d3748" }}
+      onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "#8b5cf6")}
+      onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.borderColor = accent ? "rgba(139,92,246,.25)" : "#2d3748")}
     >
-      <div className="mb-2" style={{ color: accent ? "#3b82f6" : "#64748b" }}>{icon}</div>
+      <div className="mb-2" style={{ color: accent ? "#8b5cf6" : "#64748b" }}>{icon}</div>
       <p className="text-sm font-medium leading-tight mb-1" style={{ color: "#f1f5f9" }}>{label}</p>
       <p className="text-xs leading-snug" style={{ color: "#64748b" }}>{desc}</p>
     </button>

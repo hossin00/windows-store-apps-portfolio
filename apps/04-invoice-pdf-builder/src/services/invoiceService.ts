@@ -46,7 +46,7 @@ function clamp(n: number, lo: number, hi: number): number { return Math.min(hi, 
 
 // ── PDF generation ────────────────────────────────────────────────────────────
 
-const ACCENT     = rgb(0.976, 0.451, 0.086);  // #f97316 orange-500
+const ACCENT     = rgb(0.961, 0.620, 0.043);  // #f59e0b amber-500
 const TEXT_DARK  = rgb(0.06,  0.09,  0.16);   // #0f172a slate-900
 const TEXT_MUTE  = rgb(0.39,  0.46,  0.55);   // #64748b slate-500
 const LINE_GRAY  = rgb(0.85,  0.87,  0.91);   // slate-200

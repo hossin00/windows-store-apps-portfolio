@@ -75,7 +75,7 @@ function HistoryCard({ entry, expanded, onToggle, onDelete }: {
   return (
     <Card style={{ padding: 0, overflow: "hidden" }}>
       <div className="flex items-center gap-4 px-5 py-3.5 cursor-pointer" onClick={onToggle}>
-        <div className="rounded-lg p-2 flex-shrink-0" style={{ background: "rgba(99,102,241,.1)", color: "#6366f1" }}>
+        <div className="rounded-lg p-2 flex-shrink-0" style={{ background: "rgba(124,58,237,.1)", color: "#7c3aed" }}>
           <FileText size={16} strokeWidth={1.8} />
         </div>
         <div className="flex-1 min-w-0">

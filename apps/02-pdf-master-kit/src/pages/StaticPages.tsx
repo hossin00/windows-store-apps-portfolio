@@ -9,9 +9,9 @@ export function Privacy() {
       <Topbar title="Privacy" subtitle="How PDF Master Kit handles your data" />
       <div className="flex-1 overflow-y-auto p-6 max-w-2xl space-y-5">
 
-        <Card style={{ background: "rgba(59,130,246,.06)", borderColor: "rgba(59,130,246,.2)" }}>
+        <Card style={{ background: "rgba(139,92,246,.06)", borderColor: "rgba(139,92,246,.2)" }}>
           <div className="flex items-center gap-3 mb-3">
-            <Shield size={20} style={{ color: "#3b82f6" }} />
+            <Shield size={20} style={{ color: "#8b5cf6" }} />
             <p className="font-semibold" style={{ color: "#f1f5f9" }}>Privacy-First Design</p>
           </div>
           <p className="text-sm leading-relaxed" style={{ color: "#94a3b8" }}>
@@ -34,7 +34,7 @@ export function Privacy() {
         ].map(({ icon: Icon, title, body }) => (
           <Card key={title}>
             <div className="flex gap-4">
-              <div className="rounded-lg p-2 flex-shrink-0 self-start" style={{ background: "rgba(59,130,246,.08)", color: "#3b82f6" }}>
+              <div className="rounded-lg p-2 flex-shrink-0 self-start" style={{ background: "rgba(139,92,246,.08)", color: "#8b5cf6" }}>
                 <Icon size={18} strokeWidth={1.8} />
               </div>
               <div>
@@ -72,7 +72,7 @@ export function About() {
           <div className="flex items-center gap-4 mb-5">
             <div
               className="flex items-center justify-center rounded-2xl"
-              style={{ width: 56, height: 56, background: "linear-gradient(135deg,#3b82f6,#6366f1)", flexShrink: 0 }}>
+              style={{ width: 56, height: 56, background: "linear-gradient(135deg,#8b5cf6,#7c3aed)", flexShrink: 0 }}>
               <FileStack size={26} color="white" strokeWidth={2} />
             </div>
             <div>
@@ -158,7 +158,7 @@ export function Help() {
         ].map(({ q, a }) => (
           <Card key={q}>
             <div className="flex gap-3">
-              <HelpCircle size={16} strokeWidth={1.8} className="flex-shrink-0 mt-0.5" style={{ color: "#3b82f6" }} />
+              <HelpCircle size={16} strokeWidth={1.8} className="flex-shrink-0 mt-0.5" style={{ color: "#8b5cf6" }} />
               <div>
                 <p className="font-medium mb-1.5" style={{ color: "#f1f5f9" }}>{q}</p>
                 <p className="text-sm leading-relaxed" style={{ color: "#64748b" }}>{a}</p>
@@ -167,9 +167,9 @@ export function Help() {
           </Card>
         ))}
 
-        <Card style={{ background: "rgba(59,130,246,.06)", borderColor: "rgba(59,130,246,.2)" }}>
+        <Card style={{ background: "rgba(139,92,246,.06)", borderColor: "rgba(139,92,246,.2)" }}>
           <div className="flex items-center gap-2 mb-2">
-            <Mail size={15} style={{ color: "#3b82f6" }} />
+            <Mail size={15} style={{ color: "#8b5cf6" }} />
             <p className="text-sm font-semibold" style={{ color: "#f1f5f9" }}>Support</p>
           </div>
           <p className="text-sm" style={{ color: "#64748b" }}>

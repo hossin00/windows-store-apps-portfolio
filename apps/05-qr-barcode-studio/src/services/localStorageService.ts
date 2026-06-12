@@ -9,7 +9,20 @@ const KEYS = {
   SETTINGS: "qrbar_settings",
   HISTORY:  "qrbar_history",
   STATS:    "qrbar_stats",
+  FIRST_USE: "qrbar_first_use",
 } as const;
+
+// ── First-use date ────────────────────────────────────────────────────────────
+export function getFirstUseDate(): string {
+  try {
+    let v = localStorage.getItem(KEYS.FIRST_USE);
+    if (!v) {
+      v = new Date().toISOString();
+      localStorage.setItem(KEYS.FIRST_USE, v);
+    }
+    return v;
+  } catch { return new Date().toISOString(); }
+}
 
 // ── Settings ──────────────────────────────────────────────────────────────────
 

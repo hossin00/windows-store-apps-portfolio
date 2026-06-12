@@ -10,11 +10,11 @@
 
 | # | App | Status | Package |
 |---|-----|--------|---------|
-| 01 | [PDF OCR Desk](./apps/01-pdf-ocr-desk) | ✅ Ready | com.kartdev.pdfocrdesk |
-| 02 | [PDF Master Kit](./apps/02-pdf-master-kit) | ✅ Ready | com.kartdev.pdfmasterkit |
-| 03 | [File Rename Factory](./apps/03-file-rename-factory) | ✅ Ready | com.kartdev.filerenameFactory |
-| 04 | [Invoice PDF Builder](./apps/04-invoice-pdf-builder) | ✅ Ready | com.kartdev.invoicepdfbuilder |
-| 05 | [QR Barcode Studio](./apps/05-qr-barcode-studio) | ✅ Ready | com.kartdev.qrbarcodestudio |
+| 01 | [PDF OCR Desk](./apps/01-pdf-ocr-desk) — _blue_ | ✅ Premium | com.kartdev.pdfocrdesk |
+| 02 | [PDF Master Kit](./apps/02-pdf-master-kit) — _violet_ | ✅ Premium | com.kartdev.pdfmasterkit |
+| 03 | [File Rename Factory](./apps/03-file-rename-factory) — _orange_ | ✅ Premium | com.kartdev.filerenameFactory |
+| 04 | [Invoice PDF Builder](./apps/04-invoice-pdf-builder) — _amber_ | ✅ Premium | com.kartdev.invoicepdfbuilder |
+| 05 | [QR Barcode Studio](./apps/05-qr-barcode-studio) — _emerald_ | ✅ Premium | com.kartdev.qrbarcodestudio |
 | 06 | Clipboard Vault Pro | 🔜 Next | — |
 | 07 | Duplicate File Finder | 📋 Planned | — |
 | 08 | Product Listing Builder | 📋 Planned | — |

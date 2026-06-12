@@ -93,7 +93,7 @@ export function Extract() {
           <>
             <Card>
               <div className="flex items-center gap-4">
-                <div className="rounded-lg p-2.5 flex-shrink-0" style={{ background: "rgba(99,102,241,.1)", color: "#6366f1" }}>
+                <div className="rounded-lg p-2.5 flex-shrink-0" style={{ background: "rgba(124,58,237,.1)", color: "#7c3aed" }}>
                   <FileText size={18} strokeWidth={1.8} />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -113,9 +113,9 @@ export function Extract() {
                   <button key={m} onClick={() => setMode(m)}
                     className="flex-1 px-3 py-2 rounded-lg border text-sm font-medium cursor-pointer"
                     style={{
-                      background:  mode === m ? "rgba(59,130,246,.12)" : "#1e2535",
-                      borderColor: mode === m ? "#3b82f6" : "#2d3748",
-                      color:       mode === m ? "#60a5fa" : "#94a3b8",
+                      background:  mode === m ? "rgba(139,92,246,.12)" : "#1e2535",
+                      borderColor: mode === m ? "#8b5cf6" : "#2d3748",
+                      color:       mode === m ? "#a78bfa" : "#94a3b8",
                     }}>{l}</button>
                 ))}
               </div>
@@ -128,7 +128,7 @@ export function Extract() {
                     </p>
                     <div className="flex gap-2">
                       <Button variant="ghost" size="sm" onClick={selectAll} icon={<CheckSquare size={12} />}
-                        style={{ color: "#3b82f6", padding: "0 8px" }}>Select all</Button>
+                        style={{ color: "#8b5cf6", padding: "0 8px" }}>Select all</Button>
                       <Button variant="ghost" size="sm" onClick={selectNone} icon={<Square size={12} />}
                         style={{ color: "#94a3b8", padding: "0 8px" }}>None</Button>
                     </div>
@@ -140,9 +140,9 @@ export function Extract() {
                         <button key={p} onClick={() => toggle(p)}
                           className="py-2 rounded-md border text-xs font-medium cursor-pointer transition-colors"
                           style={{
-                            background:  on ? "rgba(59,130,246,.12)" : "#1e2535",
-                            borderColor: on ? "#3b82f6" : "#2d3748",
-                            color:       on ? "#60a5fa" : "#94a3b8",
+                            background:  on ? "rgba(139,92,246,.12)" : "#1e2535",
+                            borderColor: on ? "#8b5cf6" : "#2d3748",
+                            color:       on ? "#a78bfa" : "#94a3b8",
                           }}>
                           {p}
                         </button>

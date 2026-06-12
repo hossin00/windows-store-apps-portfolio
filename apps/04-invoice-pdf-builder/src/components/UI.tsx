@@ -2,9 +2,9 @@ import React from "react";
 import { Loader2, AlertTriangle, type LucideIcon } from "lucide-react";
 
 // Accent palette for this app: orange-500
-export const ACCENT      = "#f97316";
-export const ACCENT_SOFT = "#fb923c";  // orange-400
-export const ACCENT_DEEP = "#ea580c";  // orange-600
+export const ACCENT      = "#f59e0b";
+export const ACCENT_SOFT = "#fbbf24";  // orange-400
+export const ACCENT_DEEP = "#d97706";  // orange-600
 
 // ─── Button ───────────────────────────────────────────────────────────────────
 type BtnVariant = "primary" | "secondary" | "ghost" | "danger";
@@ -33,7 +33,7 @@ export function Button({ variant = "secondary", size = "md", loading, icon, chil
   return (
     <button
       disabled={disabled || loading}
-      className={`inline-flex items-center justify-center font-medium rounded-md transition-all duration-100 cursor-pointer select-none disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0 ${SIZE_CLS[size]}`}
+      className={`btn-press inline-flex items-center justify-center font-medium rounded-md cursor-pointer select-none disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0 ${SIZE_CLS[size]}`}
       style={{ ...VARIANT_STYLE[variant], ...style }}
       {...rest}
     >
@@ -50,7 +50,7 @@ export function Card({ children, className = "", style, onClick }: {
   return (
     <div
       onClick={onClick}
-      className={`rounded-xl border p-5 ${onClick ? "cursor-pointer transition-all duration-100 hover:-translate-y-px" : ""} ${className}`}
+      className={`rounded-xl border p-5 ${onClick ? "cursor-pointer card-lift" : ""} ${className}`}
       style={{ background: "#161b27", borderColor: "#2d3748", ...style }}
     >
       {children}
@@ -71,7 +71,7 @@ export function StatCard({ label, value, icon, accent = false }: {
             {value}
           </p>
         </div>
-        <div className="rounded-lg p-2 flex-shrink-0" style={{ background: "rgba(249,115,22,.1)", color: ACCENT }}>
+        <div className="rounded-lg p-2 flex-shrink-0" style={{ background: "rgba(245,158,11,.1)", color: ACCENT }}>
           {icon}
         </div>
       </div>
@@ -106,7 +106,7 @@ export function EmptyState({ icon: Icon, title, description, action }: {
   return (
     <div className="flex flex-col items-center justify-center py-16 px-8 text-center">
       {Icon && (
-        <div className="rounded-2xl p-4 mb-4" style={{ background: "rgba(249,115,22,.08)", color: ACCENT }}>
+        <div className="rounded-2xl p-4 mb-4" style={{ background: "rgba(245,158,11,.08)", color: ACCENT }}>
           <Icon size={28} strokeWidth={1.5} />
         </div>
       )}

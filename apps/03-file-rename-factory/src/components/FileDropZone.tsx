@@ -25,14 +25,14 @@ export function FileDropZone({ onFilesAccepted, className = "", hint }: Props) {
         {...getRootProps()}
         className="rounded-xl border-2 border-dashed cursor-pointer transition-all duration-150 flex flex-col items-center justify-center gap-3 py-10 px-6 text-center"
         style={{
-          borderColor: isDragActive ? "#3b82f6" : "#2d3748",
-          background:  isDragActive ? "rgba(59,130,246,.06)" : "rgba(22,27,39,.5)",
+          borderColor: isDragActive ? "#f97316" : "#2d3748",
+          background:  isDragActive ? "rgba(249,115,22,.06)" : "rgba(22,27,39,.5)",
         }}
       >
         <input {...getInputProps()} />
         <div
           className="rounded-xl p-3"
-          style={{ background: isDragActive ? "rgba(59,130,246,.15)" : "rgba(59,130,246,.08)", color: isDragActive ? "#60a5fa" : "#3b82f6" }}
+          style={{ background: isDragActive ? "rgba(249,115,22,.15)" : "rgba(249,115,22,.08)", color: isDragActive ? "#fb923c" : "#f97316" }}
         >
           <Upload size={24} strokeWidth={1.8} />
         </div>

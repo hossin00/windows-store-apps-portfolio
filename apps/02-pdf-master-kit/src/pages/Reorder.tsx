@@ -117,7 +117,7 @@ export function Reorder() {
           <>
             <Card>
               <div className="flex items-center gap-4">
-                <div className="rounded-lg p-2.5 flex-shrink-0" style={{ background: "rgba(99,102,241,.1)", color: "#6366f1" }}>
+                <div className="rounded-lg p-2.5 flex-shrink-0" style={{ background: "rgba(124,58,237,.1)", color: "#7c3aed" }}>
                   <FileText size={18} strokeWidth={1.8} />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -147,8 +147,8 @@ export function Reorder() {
                       onDragEnd={() => { setDragId(null); setOverId(null); }}
                       className="flex items-center gap-3 px-3 py-2 rounded-md"
                       style={{
-                        background:  over ? "rgba(59,130,246,.12)" : (dragId === pg.id ? "rgba(99,102,241,.08)" : "#1e2535"),
-                        border: `1px solid ${over ? "#3b82f6" : "#2d3748"}`,
+                        background:  over ? "rgba(139,92,246,.12)" : (dragId === pg.id ? "rgba(124,58,237,.08)" : "#1e2535"),
+                        border: `1px solid ${over ? "#8b5cf6" : "#2d3748"}`,
                         cursor: "grab",
                       }}>
                       <GripVertical size={14} style={{ color: "#475569", flexShrink: 0 }} />
@@ -166,7 +166,7 @@ export function Reorder() {
                       <button onClick={() => rotate(pg.id)}
                         className="flex items-center justify-center rounded-md cursor-pointer"
                         title="Rotate 90°"
-                        style={{ width: 28, height: 28, background: "transparent", border: "1px solid #2d3748", color: "#3b82f6" }}>
+                        style={{ width: 28, height: 28, background: "transparent", border: "1px solid #2d3748", color: "#8b5cf6" }}>
                         <RotateCw size={13} style={{ transform: `rotate(${pg.rotation}deg)`, transition: "transform .2s" }} />
                       </button>
                       <button onClick={() => move(pg.id, -1)} disabled={idx === 0}

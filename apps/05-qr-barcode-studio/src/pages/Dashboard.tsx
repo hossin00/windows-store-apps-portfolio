@@ -5,21 +5,61 @@ import {
 } from "lucide-react";
 import { Topbar } from "../components/Topbar";
 import { StatCard, Card, Button, Badge, ACCENT } from "../components/UI";
-import { getStats, getHistory } from "../services/localStorageService";
+import { ActivityChart } from "../components/ActivityChart";
+import { getStats, getHistory, getFirstUseDate } from "../services/localStorageService";
 import type { HistoryEntry } from "../types";
-import { formatDistanceToNow } from "date-fns";
+import { formatDistanceToNow, differenceInCalendarDays } from "date-fns";
 
 export function Dashboard() {
   const nav = useNavigate();
   const [stats,  setStats]  = useState({ codesGenerated: 0, qrCodes: 0, barcodes: 0, batchRuns: 0 });
   const [recent, setRecent] = useState<HistoryEntry[]>([]);
+  const [history, setHistory] = useState<HistoryEntry[]>([]);
+  const [firstUse, setFirstUse] = useState<string>("");
 
-  useEffect(() => { setStats(getStats()); setRecent(getHistory().slice(0, 5)); }, []);
+  useEffect(() => {
+    setStats(getStats());
+    const all = getHistory();
+    setHistory(all);
+    setRecent(all.slice(0, 5));
+    setFirstUse(getFirstUseDate());
+  }, []);
+
+  const daysWithUs = firstUse ? Math.max(0, differenceInCalendarDays(new Date(), new Date(firstUse))) : 0;
+  const hour = new Date().getHours();
+  const greeting = hour < 5 ? "Up early" : hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
+  const activityTs = history.map((h) => h.createdAt);
 
   return (
     <div className="flex flex-col h-full" style={{ background: "#0f1117" }}>
       <Topbar title="Dashboard" subtitle="QR Barcode Studio" />
       <div className="flex-1 overflow-y-auto p-6 space-y-6">
+
+        {/* Welcome banner */}
+        <Card style={{
+          background: "linear-gradient(135deg, rgba(16,185,129,0.10), rgba(5,150,105,0.06))",
+          borderColor: "rgba(16,185,129,0.25)",
+        }}>
+          <div className="flex items-center gap-4">
+            <div className="rounded-xl flex items-center justify-center flex-shrink-0"
+              style={{ width: 44, height: 44, background: `linear-gradient(135deg,${ACCENT},#059669)` }}>
+              <Sparkles size={20} color="#ffffff" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-base font-semibold" style={{ color: "#f1f5f9" }}>{greeting} — welcome back</p>
+              <p className="text-xs mt-0.5" style={{ color: "#94a3b8" }}>
+                {daysWithUs === 0
+                  ? "Glad you're here on day one."
+                  : `Day ${daysWithUs + 1} with QR Barcode Studio · ${stats.codesGenerated} code${stats.codesGenerated !== 1 ? "s" : ""} generated so far`}
+              </p>
+            </div>
+          </div>
+        </Card>
+
+        {/* Activity chart */}
+        <Card>
+          <ActivityChart timestamps={activityTs} label="Activity — last 7 days" />
+        </Card>
 
         <div className="grid grid-cols-4 gap-4">
           <StatCard label="Codes Generated" value={stats.codesGenerated} icon={<Sparkles size={18} />} accent />

@@ -9,7 +9,20 @@ const KEYS = {
   SETTINGS: "invoice_settings",
   HISTORY:  "invoice_history",
   STATS:    "invoice_stats",
+  FIRST_USE: "invoice_first_use",
 } as const;
+
+// ── First-use date ────────────────────────────────────────────────────────────
+export function getFirstUseDate(): string {
+  try {
+    let v = localStorage.getItem(KEYS.FIRST_USE);
+    if (!v) {
+      v = new Date().toISOString();
+      localStorage.setItem(KEYS.FIRST_USE, v);
+    }
+    return v;
+  } catch { return new Date().toISOString(); }
+}
 
 // ── Settings ──────────────────────────────────────────────────────────────────
 

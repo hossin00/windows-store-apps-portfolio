@@ -31,9 +31,9 @@ export function Settings() {
               {([["dark","Dark",Moon],["light","Light",Sun],["system","System",Monitor]] as [Theme, string, typeof Moon][]).map(([v, l, Icon]) => (
                 <button key={v} onClick={() => updateSettings({ theme: v })}
                   className="flex items-center gap-2 px-4 py-2.5 rounded-lg border text-sm font-medium transition-all cursor-pointer"
-                  style={{ background: settings.theme === v ? "rgba(59,130,246,.12)" : "#1e2535",
-                    borderColor: settings.theme === v ? "#3b82f6" : "#2d3748",
-                    color: settings.theme === v ? "#60a5fa" : "#94a3b8" }}>
+                  style={{ background: settings.theme === v ? "rgba(249,115,22,.12)" : "#1e2535",
+                    borderColor: settings.theme === v ? "#f97316" : "#2d3748",
+                    color: settings.theme === v ? "#fb923c" : "#94a3b8" }}>
                   <Icon size={15} />{l}
                 </button>
               ))}
@@ -59,7 +59,7 @@ export function Settings() {
               <p className="text-sm font-medium" style={{ color: "#f1f5f9" }}>Storage used</p>
               <p className="text-xs mt-0.5" style={{ color: "#64748b" }}>Approx. {storageKB} KB in browser localStorage</p>
             </div>
-            <span className="text-sm font-semibold" style={{ color: "#3b82f6" }}>{storageKB} KB</span>
+            <span className="text-sm font-semibold" style={{ color: "#f97316" }}>{storageKB} KB</span>
           </div>
           <div className="flex items-center gap-3">
             <Button variant="danger" size="sm" onClick={handleClearData} icon={<Trash2 size={13} />}>

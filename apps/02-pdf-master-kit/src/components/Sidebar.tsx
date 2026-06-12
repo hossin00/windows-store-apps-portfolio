@@ -31,7 +31,7 @@ export function Sidebar() {
       <div className="flex items-center gap-3 px-4 py-4 border-b" style={{ borderColor: "#2d3748", minHeight: 60 }}>
         <div
           className="flex items-center justify-center rounded-lg flex-shrink-0"
-          style={{ width: 32, height: 32, background: "linear-gradient(135deg,#3b82f6,#6366f1)" }}
+          style={{ width: 32, height: 32, background: "linear-gradient(135deg,#8b5cf6,#7c3aed)" }}
         >
           <FileStack size={16} color="white" strokeWidth={2.5} />
         </div>
@@ -69,14 +69,14 @@ function SidebarLink({
   return (
     <NavLink
       to={to}
-      className="flex items-center gap-2.5 rounded-md px-2 py-2 text-sm font-medium transition-colors"
-      style={{ color: active ? "#f1f5f9" : "#64748b", background: active ? "rgba(59,130,246,.12)" : "transparent" }}
+      className="nav-link flex items-center gap-2.5 rounded-md px-2 py-2 text-sm font-medium"
+      style={{ color: active ? "#f1f5f9" : "#64748b", background: active ? "rgba(139,92,246,.12)" : "transparent" }}
     >
-      <span style={{ color: active ? "#3b82f6" : undefined, flexShrink: 0 }}>
+      <span style={{ color: active ? "#8b5cf6" : undefined, flexShrink: 0 }}>
         <Icon size={17} strokeWidth={active ? 2.2 : 1.8} />
       </span>
       <span className="flex-1 truncate">{label}</span>
-      {active && <ChevronRight size={13} style={{ color: "#3b82f6", opacity: 0.7 }} />}
+      {active && <ChevronRight size={13} style={{ color: "#8b5cf6", opacity: 0.7 }} />}
     </NavLink>
   );
 }

@@ -111,7 +111,7 @@ export function Merge() {
                 <span className="text-xs font-mono w-6 flex-shrink-0" style={{ color: "#475569" }}>
                   {String(idx + 1).padStart(2, "0")}
                 </span>
-                <div className="rounded-lg p-2 flex-shrink-0" style={{ background: "rgba(99,102,241,.1)", color: "#6366f1" }}>
+                <div className="rounded-lg p-2 flex-shrink-0" style={{ background: "rgba(124,58,237,.1)", color: "#7c3aed" }}>
                   <FileText size={16} strokeWidth={1.8} />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -129,7 +129,7 @@ export function Merge() {
             ))}
             <div className="flex items-center gap-2 px-5 py-3" style={{ background: "rgba(30,37,53,.4)" }}>
               <Button variant="ghost" size="sm" onClick={() => document.getElementById("merge-pick")?.click()}
-                icon={<Plus size={13} />} style={{ color: "#3b82f6", paddingLeft: 0 }}>
+                icon={<Plus size={13} />} style={{ color: "#8b5cf6", paddingLeft: 0 }}>
                 Add more files
               </Button>
               <input id="merge-pick" type="file" accept="application/pdf" multiple style={{ display: "none" }}

@@ -75,7 +75,7 @@ export function Compress() {
           <>
             <Card>
               <div className="flex items-center gap-4">
-                <div className="rounded-lg p-2.5 flex-shrink-0" style={{ background: "rgba(99,102,241,.1)", color: "#6366f1" }}>
+                <div className="rounded-lg p-2.5 flex-shrink-0" style={{ background: "rgba(124,58,237,.1)", color: "#7c3aed" }}>
                   <FileText size={18} strokeWidth={1.8} />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -125,7 +125,7 @@ function Stat({ label, value, accent }: { label: string; value: string; accent?:
   return (
     <div className="rounded-lg p-3" style={{ background: "rgba(30,37,53,.5)", border: "1px solid #2d3748" }}>
       <p className="text-xs mb-1" style={{ color: "#64748b" }}>{label}</p>
-      <p className="text-sm font-bold" style={{ color: accent ? "#3b82f6" : "#f1f5f9" }}>{value}</p>
+      <p className="text-sm font-bold" style={{ color: accent ? "#8b5cf6" : "#f1f5f9" }}>{value}</p>
     </div>
   );
 }

@@ -31,9 +31,9 @@ export function Settings() {
               {([["dark","Dark",Moon],["light","Light",Sun],["system","System",Monitor]] as [Theme, string, typeof Moon][]).map(([v, l, Icon]) => (
                 <button key={v} onClick={() => updateSettings({ theme: v })}
                   className="flex items-center gap-2 px-4 py-2.5 rounded-lg border text-sm font-medium transition-all cursor-pointer"
-                  style={{ background: settings.theme === v ? "rgba(249,115,22,.12)" : "#1e2535",
+                  style={{ background: settings.theme === v ? "rgba(245,158,11,.12)" : "#1e2535",
                     borderColor: settings.theme === v ? ACCENT : "#2d3748",
-                    color: settings.theme === v ? "#fb923c" : "#94a3b8" }}>
+                    color: settings.theme === v ? "#fbbf24" : "#94a3b8" }}>
                   <Icon size={15} />{l}
                 </button>
               ))}

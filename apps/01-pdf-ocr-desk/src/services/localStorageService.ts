@@ -10,7 +10,20 @@ const KEYS = {
   HISTORY:   "pdfocr_history",
   EXPORTS:   "pdfocr_exports",
   STATS:     "pdfocr_stats",
+  FIRST_USE: "pdfocr_first_use",
 } as const;
+
+// ── First-use date ────────────────────────────────────────────────────────────
+export function getFirstUseDate(): string {
+  try {
+    let v = localStorage.getItem(KEYS.FIRST_USE);
+    if (!v) {
+      v = new Date().toISOString();
+      localStorage.setItem(KEYS.FIRST_USE, v);
+    }
+    return v;
+  } catch { return new Date().toISOString(); }
+}
 
 // ── Settings ──────────────────────────────────────────────────────────────────
 

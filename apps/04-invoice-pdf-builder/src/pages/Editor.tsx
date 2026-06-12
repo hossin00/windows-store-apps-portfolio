@@ -253,7 +253,7 @@ export function Editor() {
                 onChange={(v) => patch({ discount: Math.max(0, Math.min(100, parseFloat(v) || 0)) })}
                 suffix="%" />
             </div>
-            <Card style={{ background: "rgba(249,115,22,.04)", borderColor: "rgba(249,115,22,.2)", padding: "12px 16px" }}>
+            <Card style={{ background: "rgba(245,158,11,.04)", borderColor: "rgba(245,158,11,.2)", padding: "12px 16px" }}>
               <div className="space-y-1.5 text-xs">
                 <Row label="Subtotal" value={formatMoney(totals.subtotal, invoice.currency)} />
                 {invoice.discount > 0 && <Row label={`Discount (${invoice.discount}%)`} value={"−" + formatMoney(totals.discountAmt, invoice.currency)} />}

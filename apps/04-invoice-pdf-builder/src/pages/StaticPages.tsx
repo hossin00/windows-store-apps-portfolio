@@ -9,7 +9,7 @@ export function Privacy() {
       <Topbar title="Privacy" subtitle="How Invoice PDF Builder handles your data" />
       <div className="flex-1 overflow-y-auto p-6 max-w-2xl space-y-5">
 
-        <Card style={{ background: "rgba(249,115,22,.06)", borderColor: "rgba(249,115,22,.2)" }}>
+        <Card style={{ background: "rgba(245,158,11,.06)", borderColor: "rgba(245,158,11,.2)" }}>
           <div className="flex items-center gap-3 mb-3">
             <Shield size={20} style={{ color: ACCENT }} />
             <p className="font-semibold" style={{ color: "#f1f5f9" }}>Privacy-First Design</p>
@@ -34,7 +34,7 @@ export function Privacy() {
         ].map(({ icon: Icon, title, body }) => (
           <Card key={title}>
             <div className="flex gap-4">
-              <div className="rounded-lg p-2 flex-shrink-0 self-start" style={{ background: "rgba(249,115,22,.08)", color: ACCENT }}>
+              <div className="rounded-lg p-2 flex-shrink-0 self-start" style={{ background: "rgba(245,158,11,.08)", color: ACCENT }}>
                 <Icon size={18} strokeWidth={1.8} />
               </div>
               <div>
@@ -72,7 +72,7 @@ export function About() {
           <div className="flex items-center gap-4 mb-5">
             <div
               className="flex items-center justify-center rounded-2xl"
-              style={{ width: 56, height: 56, background: "linear-gradient(135deg,#f97316,#ea580c)", flexShrink: 0 }}>
+              style={{ width: 56, height: 56, background: "linear-gradient(135deg,#f59e0b,#d97706)", flexShrink: 0 }}>
               <Receipt size={26} color="white" strokeWidth={2} />
             </div>
             <div>
@@ -171,7 +171,7 @@ export function Help() {
           </Card>
         ))}
 
-        <Card style={{ background: "rgba(249,115,22,.06)", borderColor: "rgba(249,115,22,.2)" }}>
+        <Card style={{ background: "rgba(245,158,11,.06)", borderColor: "rgba(245,158,11,.2)" }}>
           <div className="flex items-center gap-2 mb-2">
             <Mail size={15} style={{ color: ACCENT }} />
             <p className="text-sm font-semibold" style={{ color: "#f1f5f9" }}>Support</p>

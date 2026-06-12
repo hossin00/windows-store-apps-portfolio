@@ -67,7 +67,7 @@ function SidebarLink({
   return (
     <NavLink
       to={to}
-      className="flex items-center gap-2.5 rounded-md px-2 py-2 text-sm font-medium transition-colors"
+      className="nav-link flex items-center gap-2.5 rounded-md px-2 py-2 text-sm font-medium"
       style={{ color: active ? "#f1f5f9" : "#64748b", background: active ? "rgba(16,185,129,.12)" : "transparent" }}
     >
       <span style={{ color: active ? ACCENT : undefined, flexShrink: 0 }}>

@@ -97,7 +97,7 @@ export function Split() {
           <>
             <Card>
               <div className="flex items-center gap-4">
-                <div className="rounded-lg p-2.5 flex-shrink-0" style={{ background: "rgba(99,102,241,.1)", color: "#6366f1" }}>
+                <div className="rounded-lg p-2.5 flex-shrink-0" style={{ background: "rgba(124,58,237,.1)", color: "#7c3aed" }}>
                   <FileText size={18} strokeWidth={1.8} />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -121,9 +121,9 @@ export function Split() {
                   <button key={m} onClick={() => setMode(m)}
                     className="flex-1 px-3 py-2 rounded-lg border text-sm font-medium cursor-pointer"
                     style={{
-                      background:  mode === m ? "rgba(59,130,246,.12)" : "#1e2535",
-                      borderColor: mode === m ? "#3b82f6" : "#2d3748",
-                      color:       mode === m ? "#60a5fa" : "#94a3b8",
+                      background:  mode === m ? "rgba(139,92,246,.12)" : "#1e2535",
+                      borderColor: mode === m ? "#8b5cf6" : "#2d3748",
+                      color:       mode === m ? "#a78bfa" : "#94a3b8",
                     }}>{l}</button>
                 ))}
               </div>
@@ -172,9 +172,9 @@ export function Split() {
               )}
             </Card>
 
-            <Card style={{ background: "rgba(59,130,246,.04)", borderColor: "rgba(59,130,246,.18)" }}>
+            <Card style={{ background: "rgba(139,92,246,.04)", borderColor: "rgba(139,92,246,.18)" }}>
               <div className="flex items-center gap-2 mb-1">
-                <Layers size={14} style={{ color: "#3b82f6" }} />
+                <Layers size={14} style={{ color: "#8b5cf6" }} />
                 <p className="text-sm font-semibold" style={{ color: "#f1f5f9" }}>Output</p>
               </div>
               <p className="text-xs leading-relaxed" style={{ color: "#94a3b8" }}>

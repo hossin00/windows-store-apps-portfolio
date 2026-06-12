@@ -1,6 +1,11 @@
 import React from "react";
 import { Loader2, AlertTriangle, type LucideIcon } from "lucide-react";
 
+// Accent palette for this app: violet-500
+export const ACCENT      = "#8b5cf6";
+export const ACCENT_SOFT = "#a78bfa";
+export const ACCENT_DEEP = "#7c3aed";
+
 // ─── Button ───────────────────────────────────────────────────────────────────
 type BtnVariant = "primary" | "secondary" | "ghost" | "danger";
 type BtnSize    = "sm" | "md" | "lg";
@@ -13,7 +18,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const VARIANT_STYLE: Record<BtnVariant, React.CSSProperties> = {
-  primary:   { background: "#3b82f6", color: "#fff", border: "1px solid transparent" },
+  primary:   { background: "#8b5cf6", color: "#fff", border: "1px solid transparent" },
   secondary: { background: "#1e2535", color: "#94a3b8", border: "1px solid #2d3748" },
   ghost:     { background: "transparent", color: "#94a3b8", border: "1px solid transparent" },
   danger:    { background: "rgba(239,68,68,.1)", color: "#ef4444", border: "1px solid rgba(239,68,68,.25)" },
@@ -28,7 +33,7 @@ export function Button({ variant = "secondary", size = "md", loading, icon, chil
   return (
     <button
       disabled={disabled || loading}
-      className={`inline-flex items-center justify-center font-medium rounded-md transition-all duration-100 cursor-pointer select-none disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0 ${SIZE_CLS[size]}`}
+      className={`btn-press inline-flex items-center justify-center font-medium rounded-md cursor-pointer select-none disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0 ${SIZE_CLS[size]}`}
       style={{ ...VARIANT_STYLE[variant], ...style }}
       {...rest}
     >
@@ -45,7 +50,7 @@ export function Card({ children, className = "", style, onClick }: {
   return (
     <div
       onClick={onClick}
-      className={`rounded-xl border p-5 ${onClick ? "cursor-pointer transition-all duration-100 hover:-translate-y-px" : ""} ${className}`}
+      className={`rounded-xl border p-5 ${onClick ? "cursor-pointer card-lift" : ""} ${className}`}
       style={{ background: "#161b27", borderColor: "#2d3748", ...style }}
     >
       {children}
@@ -62,11 +67,11 @@ export function StatCard({ label, value, icon, accent = false }: {
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="text-xs font-medium mb-1" style={{ color: "#64748b" }}>{label}</p>
-          <p className="text-2xl font-bold tracking-tight" style={{ color: accent ? "#3b82f6" : "#f1f5f9" }}>
+          <p className="text-2xl font-bold tracking-tight" style={{ color: accent ? "#8b5cf6" : "#f1f5f9" }}>
             {value}
           </p>
         </div>
-        <div className="rounded-lg p-2 flex-shrink-0" style={{ background: "rgba(59,130,246,.1)", color: "#3b82f6" }}>
+        <div className="rounded-lg p-2 flex-shrink-0" style={{ background: "rgba(139,92,246,.1)", color: "#8b5cf6" }}>
           {icon}
         </div>
       </div>
@@ -93,19 +98,22 @@ export function Badge({ children, variant = "default" }: { children: React.React
 }
 
 // ─── EmptyState ───────────────────────────────────────────────────────────────
-export function EmptyState({ icon: Icon, title, description, action }: {
+export function EmptyState({ icon: Icon, illustration, title, description, action }: {
   icon?: LucideIcon;
+  illustration?: React.ReactNode;
   title: string; description?: string; action?: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col items-center justify-center py-16 px-8 text-center">
-      {Icon && (
-        <div className="rounded-2xl p-4 mb-4" style={{ background: "rgba(59,130,246,.08)", color: "#3b82f6" }}>
+    <div className="flex flex-col items-center justify-center py-14 px-8 text-center animate-fade-in">
+      {illustration ? (
+        <div className="mb-5">{illustration}</div>
+      ) : Icon ? (
+        <div className="rounded-2xl p-4 mb-4" style={{ background: "rgba(139,92,246,.08)", color: "#8b5cf6" }}>
           <Icon size={28} strokeWidth={1.5} />
         </div>
-      )}
-      <p className="font-semibold mb-1" style={{ color: "#f1f5f9" }}>{title}</p>
-      {description && <p className="text-sm mb-4 max-w-xs leading-relaxed" style={{ color: "#64748b" }}>{description}</p>}
+      ) : null}
+      <p className="text-base font-semibold mb-1.5" style={{ color: "#f1f5f9" }}>{title}</p>
+      {description && <p className="text-sm mb-5 max-w-sm leading-relaxed" style={{ color: "#64748b" }}>{description}</p>}
       {action}
     </div>
   );
@@ -115,7 +123,7 @@ export function EmptyState({ icon: Icon, title, description, action }: {
 export function LoadingState({ message = "Loading…" }: { message?: string }) {
   return (
     <div className="flex flex-col items-center justify-center py-16 gap-3">
-      <Loader2 size={28} className="animate-spin" style={{ color: "#3b82f6" }} />
+      <Loader2 size={28} className="animate-spin" style={{ color: "#8b5cf6" }} />
       <p className="text-sm" style={{ color: "#64748b" }}>{message}</p>
     </div>
   );
@@ -175,7 +183,7 @@ export function ToggleRow({ label, description, checked, onChange }: {
       <button
         onClick={() => onChange(!checked)}
         className="flex-shrink-0 rounded-full transition-colors duration-200 mt-0.5"
-        style={{ width: 40, height: 22, background: checked ? "#3b82f6" : "#2d3748", position: "relative" }}
+        style={{ width: 40, height: 22, background: checked ? "#8b5cf6" : "#2d3748", position: "relative" }}
         role="switch" aria-checked={checked}
       >
         <span

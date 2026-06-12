@@ -140,7 +140,7 @@ export function Workspace() {
                 <Badge variant="blue">{files.length}</Badge>
               </div>
               <button onClick={() => document.getElementById("files-pick")?.click()}
-                className="flex items-center gap-1.5 text-xs cursor-pointer" style={{ color: "#3b82f6" }}>
+                className="flex items-center gap-1.5 text-xs cursor-pointer" style={{ color: "#f97316" }}>
                 <Plus size={13} /> Add more
               </button>
               <input id="files-pick" type="file" multiple style={{ display: "none" }}
@@ -175,7 +175,7 @@ export function Workspace() {
               </div>
               <div className="relative">
                 <button onClick={() => setShowAddMenu((s) => !s)}
-                  className="flex items-center gap-1.5 text-xs cursor-pointer" style={{ color: "#3b82f6" }}>
+                  className="flex items-center gap-1.5 text-xs cursor-pointer" style={{ color: "#f97316" }}>
                   <Plus size={13} /> Add rule
                 </button>
                 {showAddMenu && (
@@ -185,7 +185,7 @@ export function Workspace() {
                       <button key={kind} onClick={() => addRule(kind)}
                         className="w-full flex items-center gap-2 px-3 py-2 text-xs text-left cursor-pointer hover:bg-slate-700/30"
                         style={{ color: "#cbd5e1" }}>
-                        <Icon size={13} style={{ color: "#3b82f6" }} />
+                        <Icon size={13} style={{ color: "#f97316" }} />
                         {label}
                       </button>
                     ))}
@@ -279,9 +279,9 @@ export function Workspace() {
         </div>
 
         {/* Tauri info card */}
-        <Card style={{ background: "rgba(59,130,246,.04)", borderColor: "rgba(59,130,246,.18)" }}>
+        <Card style={{ background: "rgba(249,115,22,.04)", borderColor: "rgba(249,115,22,.18)" }}>
           <div className="flex items-start gap-3">
-            <div className="rounded-lg p-2 flex-shrink-0" style={{ background: "rgba(59,130,246,.1)", color: "#3b82f6" }}>
+            <div className="rounded-lg p-2 flex-shrink-0" style={{ background: "rgba(249,115,22,.1)", color: "#f97316" }}>
               <FilePenLine size={16} strokeWidth={1.8} />
             </div>
             <div>
@@ -312,7 +312,7 @@ function RuleCard({ rule, index, total, onChange, onRemove, onMove }: {
   return (
     <div className="rounded-lg p-3" style={{ background: "rgba(30,37,53,.5)", border: "1px solid #2d3748" }}>
       <div className="flex items-center gap-2 mb-3">
-        <span style={{ color: rule.enabled ? "#3b82f6" : "#475569" }}>
+        <span style={{ color: rule.enabled ? "#f97316" : "#475569" }}>
           <Icon size={14} />
         </span>
         <span className="text-sm font-medium flex-1" style={{ color: rule.enabled ? "#f1f5f9" : "#64748b" }}>
@@ -463,9 +463,9 @@ function PositionPicker({ value, onChange }: { value: Position; onChange: (v: Po
         <button key={p} onClick={() => onChange(p)}
           className="flex-1 px-2 py-1.5 rounded-md border text-xs font-medium cursor-pointer"
           style={{
-            background:  value === p ? "rgba(59,130,246,.12)" : "#1e2535",
-            borderColor: value === p ? "#3b82f6" : "#2d3748",
-            color:       value === p ? "#60a5fa" : "#94a3b8",
+            background:  value === p ? "rgba(249,115,22,.12)" : "#1e2535",
+            borderColor: value === p ? "#f97316" : "#2d3748",
+            color:       value === p ? "#fb923c" : "#94a3b8",
           }}>{p}</button>
       ))}
     </div>

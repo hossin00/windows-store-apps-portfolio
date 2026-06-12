@@ -94,7 +94,7 @@ export function Rotate() {
           <>
             <Card>
               <div className="flex items-center gap-4">
-                <div className="rounded-lg p-2.5 flex-shrink-0" style={{ background: "rgba(99,102,241,.1)", color: "#6366f1" }}>
+                <div className="rounded-lg p-2.5 flex-shrink-0" style={{ background: "rgba(124,58,237,.1)", color: "#7c3aed" }}>
                   <FileText size={18} strokeWidth={1.8} />
                 </div>
                 <div className="flex-1 min-w-0">
@@ -114,9 +114,9 @@ export function Rotate() {
                   <button key={m} onClick={() => setMode(m)}
                     className="flex-1 px-3 py-2 rounded-lg border text-sm font-medium cursor-pointer"
                     style={{
-                      background:  mode === m ? "rgba(59,130,246,.12)" : "#1e2535",
-                      borderColor: mode === m ? "#3b82f6" : "#2d3748",
-                      color:       mode === m ? "#60a5fa" : "#94a3b8",
+                      background:  mode === m ? "rgba(139,92,246,.12)" : "#1e2535",
+                      borderColor: mode === m ? "#8b5cf6" : "#2d3748",
+                      color:       mode === m ? "#a78bfa" : "#94a3b8",
                     }}>{l}</button>
                 ))}
               </div>
@@ -129,9 +129,9 @@ export function Rotate() {
                       <button key={a} onClick={() => setAngle(a)}
                         className="flex-1 px-3 py-2 rounded-lg border text-sm font-medium cursor-pointer"
                         style={{
-                          background:  angle === a ? "rgba(59,130,246,.12)" : "#1e2535",
-                          borderColor: angle === a ? "#3b82f6" : "#2d3748",
-                          color:       angle === a ? "#60a5fa" : "#94a3b8",
+                          background:  angle === a ? "rgba(139,92,246,.12)" : "#1e2535",
+                          borderColor: angle === a ? "#8b5cf6" : "#2d3748",
+                          color:       angle === a ? "#a78bfa" : "#94a3b8",
                         }}>+{a}°</button>
                     ))}
                   </div>
@@ -144,9 +144,9 @@ export function Rotate() {
                       <button key={i} onClick={() => cyclePage(i)}
                         className="flex flex-col items-center gap-1 py-3 rounded-lg border cursor-pointer transition-colors"
                         style={{
-                          background:  rot !== 0 ? "rgba(59,130,246,.12)" : "#1e2535",
-                          borderColor: rot !== 0 ? "#3b82f6" : "#2d3748",
-                          color:       rot !== 0 ? "#60a5fa" : "#94a3b8",
+                          background:  rot !== 0 ? "rgba(139,92,246,.12)" : "#1e2535",
+                          borderColor: rot !== 0 ? "#8b5cf6" : "#2d3748",
+                          color:       rot !== 0 ? "#a78bfa" : "#94a3b8",
                         }}>
                         <RefreshCw size={14} style={{ transform: `rotate(${rot}deg)`, transition: "transform .2s" }} />
                         <span className="text-xs font-medium">P{i + 1}</span>

@@ -2,26 +2,66 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   FilePlus2, Clock, Shield, Receipt, ArrowRight, Download, Save,
-  Building2, Users, Edit3,
+  Building2, Users, Edit3, Sparkles,
 } from "lucide-react";
 import { Topbar } from "../components/Topbar";
 import { StatCard, Card, Button, Badge, ACCENT } from "../components/UI";
-import { getStats, getInvoices } from "../services/localStorageService";
+import { ActivityChart } from "../components/ActivityChart";
+import { getStats, getInvoices, getFirstUseDate } from "../services/localStorageService";
 import { formatMoney, calcTotals } from "../services/invoiceService";
 import type { Invoice } from "../types";
-import { formatDistanceToNow } from "date-fns";
+import { formatDistanceToNow, differenceInCalendarDays } from "date-fns";
 
 export function Dashboard() {
   const nav = useNavigate();
   const [stats,  setStats]  = useState({ invoicesSaved: 0, invoicesExported: 0, lineItemsCreated: 0 });
   const [recent, setRecent] = useState<Invoice[]>([]);
+  const [invoices, setInvoices] = useState<Invoice[]>([]);
+  const [firstUse, setFirstUse] = useState<string>("");
 
-  useEffect(() => { setStats(getStats()); setRecent(getInvoices().slice(0, 5)); }, []);
+  useEffect(() => {
+    setStats(getStats());
+    const all = getInvoices();
+    setInvoices(all);
+    setRecent(all.slice(0, 5));
+    setFirstUse(getFirstUseDate());
+  }, []);
+
+  const daysWithUs = firstUse ? Math.max(0, differenceInCalendarDays(new Date(), new Date(firstUse))) : 0;
+  const hour = new Date().getHours();
+  const greeting = hour < 5 ? "Up early" : hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
+  const activityTs = invoices.map((i) => i.createdAt);
 
   return (
     <div className="flex flex-col h-full" style={{ background: "#0f1117" }}>
       <Topbar title="Dashboard" subtitle="Invoice PDF Builder" />
       <div className="flex-1 overflow-y-auto p-6 space-y-6">
+
+        {/* Welcome banner */}
+        <Card style={{
+          background: "linear-gradient(135deg, rgba(245,158,11,0.10), rgba(217,119,6,0.06))",
+          borderColor: "rgba(245,158,11,0.25)",
+        }}>
+          <div className="flex items-center gap-4">
+            <div className="rounded-xl flex items-center justify-center flex-shrink-0"
+              style={{ width: 44, height: 44, background: `linear-gradient(135deg,${ACCENT},#d97706)` }}>
+              <Sparkles size={20} color="#ffffff" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-base font-semibold" style={{ color: "#f1f5f9" }}>{greeting} — welcome back</p>
+              <p className="text-xs mt-0.5" style={{ color: "#94a3b8" }}>
+                {daysWithUs === 0
+                  ? "Glad you're here on day one."
+                  : `Day ${daysWithUs + 1} with Invoice PDF Builder · ${stats.invoicesSaved} invoice${stats.invoicesSaved !== 1 ? "s" : ""} saved so far`}
+              </p>
+            </div>
+          </div>
+        </Card>
+
+        {/* Activity chart */}
+        <Card>
+          <ActivityChart timestamps={activityTs} label="Activity — last 7 days" />
+        </Card>
 
         <div className="grid grid-cols-3 gap-4">
           <StatCard label="Invoices Saved"   value={stats.invoicesSaved}    icon={<Save size={18} />} accent />
@@ -60,7 +100,7 @@ export function Dashboard() {
             </Card>
           </div>
 
-          <Card style={{ background: "rgba(249,115,22,.06)", borderColor: "rgba(249,115,22,.2)" }}>
+          <Card style={{ background: "rgba(245,158,11,.06)", borderColor: "rgba(245,158,11,.2)" }}>
             <div className="flex items-center gap-2 mb-3">
               <Shield size={16} style={{ color: ACCENT }} />
               <span className="text-sm font-semibold" style={{ color: "#f1f5f9" }}>Privacy-First</span>
@@ -89,7 +129,7 @@ export function Dashboard() {
           {recent.length === 0 ? (
             <Card>
               <div className="flex flex-col items-center py-8 text-center gap-3">
-                <div className="rounded-xl p-3" style={{ background: "rgba(249,115,22,.08)", color: ACCENT }}>
+                <div className="rounded-xl p-3" style={{ background: "rgba(245,158,11,.08)", color: ACCENT }}>
                   <Receipt size={22} strokeWidth={1.5} />
                 </div>
                 <div>
@@ -108,7 +148,7 @@ export function Dashboard() {
                     className="flex items-center gap-4 px-5 py-3 cursor-pointer"
                     style={{ borderBottom: i < recent.length - 1 ? "1px solid #2d3748" : undefined }}
                     onClick={() => nav(`/editor/${inv.id}`)}>
-                    <div className="rounded-lg p-2 flex-shrink-0" style={{ background: "rgba(249,115,22,.1)", color: ACCENT }}>
+                    <div className="rounded-lg p-2 flex-shrink-0" style={{ background: "rgba(245,158,11,.1)", color: ACCENT }}>
                       <Receipt size={16} strokeWidth={1.8} />
                     </div>
                     <div className="flex-1 min-w-0">
@@ -146,11 +186,11 @@ function ActionTile({ icon, label, desc, onClick, accent = false }: {
     <button onClick={onClick}
       className="text-left rounded-lg p-4 border transition-all duration-100"
       style={{
-        background: accent ? "rgba(249,115,22,.08)" : "rgba(30,37,53,.6)",
-        borderColor: accent ? "rgba(249,115,22,.25)" : "#2d3748",
+        background: accent ? "rgba(245,158,11,.08)" : "rgba(30,37,53,.6)",
+        borderColor: accent ? "rgba(245,158,11,.25)" : "#2d3748",
       }}
       onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.borderColor = ACCENT)}
-      onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.borderColor = accent ? "rgba(249,115,22,.25)" : "#2d3748")}
+      onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.borderColor = accent ? "rgba(245,158,11,.25)" : "#2d3748")}
     >
       <div className="mb-2" style={{ color: accent ? ACCENT : "#64748b" }}>{icon}</div>
       <p className="text-sm font-medium leading-tight mb-1" style={{ color: "#f1f5f9" }}>{label}</p>

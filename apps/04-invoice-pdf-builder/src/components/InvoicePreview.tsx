@@ -10,7 +10,7 @@ export function InvoicePreview({ invoice }: { invoice: Invoice }) {
       style={{ background: "#ffffff", color: "#0f172a", fontFamily: "Inter, system-ui, sans-serif" }}
     >
       {/* Header band */}
-      <div className="flex items-end justify-between px-8 py-6" style={{ background: "#f97316", color: "#ffffff" }}>
+      <div className="flex items-end justify-between px-8 py-6" style={{ background: "#f59e0b", color: "#ffffff" }}>
         <div className="flex items-center gap-3">
           <div className="rounded-lg flex items-center justify-center"
             style={{ width: 38, height: 38, background: "rgba(255,255,255,.18)", fontSize: 22 }}>
@@ -60,7 +60,7 @@ export function InvoicePreview({ invoice }: { invoice: Invoice }) {
         {/* Line items */}
         <div className="rounded-md overflow-hidden mb-6" style={{ border: "1px solid #e2e8f0" }}>
           <div className="grid px-4 py-2 text-xs font-semibold tracking-wide"
-            style={{ background: "#fff7ed", color: "#9a3412", gridTemplateColumns: "1fr 60px 90px 90px" }}>
+            style={{ background: "#fffbeb", color: "#78350f", gridTemplateColumns: "1fr 60px 90px 90px" }}>
             <span>DESCRIPTION</span>
             <span className="text-right">QTY</span>
             <span className="text-right">UNIT</span>
@@ -99,7 +99,7 @@ export function InvoicePreview({ invoice }: { invoice: Invoice }) {
             <div className="flex justify-between items-baseline pt-2 mt-2"
               style={{ borderTop: "1px solid #e2e8f0" }}>
               <span className="text-xs font-semibold tracking-wide" style={{ color: "#0f172a" }}>TOTAL</span>
-              <span className="text-lg font-bold" style={{ color: "#ea580c" }}>
+              <span className="text-lg font-bold" style={{ color: "#d97706" }}>
                 {formatMoney(totals.total, invoice.currency)}
               </span>
             </div>

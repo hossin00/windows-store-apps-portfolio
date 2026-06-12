@@ -9,7 +9,20 @@ const KEYS = {
   SETTINGS: "pdfmaster_settings",
   HISTORY:  "pdfmaster_history",
   STATS:    "pdfmaster_stats",
+  FIRST_USE: "pdfmaster_first_use",
 } as const;
+
+// ── First-use date ────────────────────────────────────────────────────────────
+export function getFirstUseDate(): string {
+  try {
+    let v = localStorage.getItem(KEYS.FIRST_USE);
+    if (!v) {
+      v = new Date().toISOString();
+      localStorage.setItem(KEYS.FIRST_USE, v);
+    }
+    return v;
+  } catch { return new Date().toISOString(); }
+}
 
 // ── Settings ──────────────────────────────────────────────────────────────────
 

@@ -75,7 +75,7 @@ function SessionCard({ session, expanded, onToggle, onUndo, onRedo, onDelete }: 
   return (
     <Card style={{ padding: 0, overflow: "hidden" }}>
       <div className="flex items-center gap-4 px-5 py-3.5 cursor-pointer" onClick={onToggle}>
-        <div className="rounded-lg p-2 flex-shrink-0" style={{ background: "rgba(99,102,241,.1)", color: "#6366f1" }}>
+        <div className="rounded-lg p-2 flex-shrink-0" style={{ background: "rgba(234,88,12,.1)", color: "#ea580c" }}>
           <FilePenLine size={16} strokeWidth={1.8} />
         </div>
         <div className="flex-1 min-w-0">

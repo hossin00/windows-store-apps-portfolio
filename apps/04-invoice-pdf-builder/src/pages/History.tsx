@@ -90,7 +90,7 @@ export function History() {
               return (
                 <Card key={inv.id} style={{ padding: 0, overflow: "hidden" }}>
                   <div className="flex items-center gap-4 px-5 py-4">
-                    <div className="rounded-lg p-2 flex-shrink-0" style={{ background: "rgba(249,115,22,.1)", color: "#f97316" }}>
+                    <div className="rounded-lg p-2 flex-shrink-0" style={{ background: "rgba(245,158,11,.1)", color: "#f59e0b" }}>
                       <Receipt size={16} strokeWidth={1.8} />
                     </div>
                     <div className="flex-1 min-w-0">
