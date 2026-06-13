@@ -1,0 +1,19 @@
+{
+  "name": "Product Listing Builder",
+  "short_name": "Listings",
+  "description": "Compose marketplace listings with per-platform live preview.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0f1117",
+  "theme_color": "#0ea5e9",
+  "orientation": "landscape",
+  "lang": "en",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "categories": ["productivity", "utilities"],
+  "screenshots": []
+}

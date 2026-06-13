@@ -1,0 +1,19 @@
+{
+  "name": "File Rename Factory",
+  "short_name": "Rename",
+  "description": "Batch rename files with a rule pipeline and live preview.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0f1117",
+  "theme_color": "#f97316",
+  "orientation": "landscape",
+  "lang": "en",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "categories": ["productivity", "utilities"],
+  "screenshots": []
+}
