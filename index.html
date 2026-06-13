@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>KART L · Windows Store Apps Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Eight premium Windows desktop apps — each runs locally, no account, no telemetry. Built with Tauri + React + TypeScript by KART L.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 100%; min-height: 100vh; }
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    background: #0f1117;
+    color: #f1f5f9;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 56px 24px 80px; }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
+  .logo {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6, #10b981, #f59e0b);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 18px; color: #fff;
+  }
+  h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.01em; }
+  .sub { color: #94a3b8; font-size: 14px; margin-top: 4px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin-bottom: 56px;
+  }
+  .card {
+    background: #161b27;
+    border: 1px solid #2d3748;
+    border-radius: 12px;
+    padding: 20px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    border-color: #475569;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+  }
+  .dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+  .name { font-size: 16px; font-weight: 600; color: #f1f5f9; }
+  .desc { font-size: 13px; color: #94a3b8; line-height: 1.55; }
+  .meta {
+    display: flex;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 10px;
+    font-size: 11px;
+    color: #475569;
+  }
+  .badge {
+    display: inline-block;
+    margin-left: auto;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    background: rgba(34,197,94,0.15);
+    color: #4ade80;
+    border: 1px solid rgba(34,197,94,0.25);
+  }
+  footer {
+    color: #475569;
+    font-size: 12px;
+    text-align: center;
+    border-top: 1px solid #1e2535;
+    padding-top: 24px;
+  }
+  footer a { color: #94a3b8; text-decoration: none; }
+  footer a:hover { color: #f1f5f9; }
+  section { margin-bottom: 32px; }
+  section h2 {
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="logo">KL</div>
+    <div>
+      <h1>Windows Store Apps Portfolio</h1>
+      <div class="sub">Eight premium productivity apps — local, private, no account. All PWA-installable.</div>
+    </div>
+  </header>
+
+  <section>
+    <h2>Live PWAs · installable from each app's address bar</h2>
+    <div class="grid">
+
+      <a class="card" href="./01/">
+        <div class="row"><div class="dot" style="background:#3b82f6"></div><span>App 01 · blue</span><span class="badge">PWA</span></div>
+        <div class="name">PDF OCR Desk</div>
+        <div class="desc">Extract text from images and scanned PDFs entirely on your device.</div>
+        <div class="meta">Tauri · React · OCR</div>
+      </a>
+
+      <a class="card" href="./02/">
+        <div class="row"><div class="dot" style="background:#8b5cf6"></div><span>App 02 · violet</span><span class="badge">PWA</span></div>
+        <div class="name">PDF Master Kit</div>
+        <div class="desc">Merge, split, compress, rotate, reorder, and extract PDF pages — six real tools.</div>
+        <div class="meta">pdf-lib · in-browser</div>
+      </a>
+
+      <a class="card" href="./03/">
+        <div class="row"><div class="dot" style="background:#f97316"></div><span>App 03 · orange</span><span class="badge">PWA</span></div>
+        <div class="name">File Rename Factory</div>
+        <div class="desc">Batch rename with a 9-rule pipeline, live preview, collision and error flags.</div>
+        <div class="meta">Regex · CSV plan</div>
+      </a>
+
+      <a class="card" href="./04/">
+        <div class="row"><div class="dot" style="background:#f59e0b"></div><span>App 04 · amber</span><span class="badge">PWA</span></div>
+        <div class="name">Invoice PDF Builder</div>
+        <div class="desc">Compose invoices with live preview, six currencies, and a real PDF export.</div>
+        <div class="meta">pdf-lib · A4</div>
+      </a>
+
+      <a class="card" href="./05/">
+        <div class="row"><div class="dot" style="background:#10b981"></div><span>App 05 · emerald</span><span class="badge">PWA</span></div>
+        <div class="name">QR Barcode Studio</div>
+        <div class="desc">Generate QR codes and 1D barcodes (5 formats) with PNG + SVG export.</div>
+        <div class="meta">qrcode · jsbarcode</div>
+      </a>
+
+      <a class="card" href="./06/">
+        <div class="row"><div class="dot" style="background:#8b5cf6"></div><span>App 06 · violet</span><span class="badge">PWA</span></div>
+        <div class="name">Clipboard Vault Pro</div>
+        <div class="desc">Save snippets with auto type detection (URL / email / code / phone / text), tags, collections.</div>
+        <div class="meta">Vault · search · tags</div>
+      </a>
+
+      <a class="card" href="./07/">
+        <div class="row"><div class="dot" style="background:#ef4444"></div><span>App 07 · red</span><span class="badge">PWA</span></div>
+        <div class="name">Duplicate File Finder</div>
+        <div class="desc">Group duplicate files by name+size fingerprint, review the plan, reclaim disk space.</div>
+        <div class="meta">Plan-then-apply</div>
+      </a>
+
+      <a class="card" href="./08/">
+        <div class="row"><div class="dot" style="background:#0ea5e9"></div><span>App 08 · sky</span><span class="badge">PWA</span></div>
+        <div class="name">Product Listing Builder</div>
+        <div class="desc">Marketplace listings with per-platform live preview (Amazon, eBay, Etsy, Shopify, …) and SEO scoring.</div>
+        <div class="meta">Per-platform formatter</div>
+      </a>
+
+    </div>
+  </section>
+
+  <footer>
+    Each app ships a Web App Manifest, service worker, and icon set so it scores high on PWABuilder and can be packaged as an MSIX for the Microsoft Store.
+    <br>Built locally with Vite + React + TypeScript · packaged for the desktop with Tauri 2 ·
+    <a href="https://github.com/hossin00/windows-store-apps-portfolio">github.com/hossin00/windows-store-apps-portfolio</a>
+  </footer>
+
+</div>
+</body>
+</html>
