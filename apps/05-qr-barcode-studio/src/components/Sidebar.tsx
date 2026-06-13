@@ -23,8 +23,17 @@ const SECONDARY: { label: string; to: string; icon: LucideIcon }[] = [
 export function Sidebar() {
   return (
     <aside
-      className="flex flex-col h-full border-r"
-      style={{ width: 220, minWidth: 220, background: "#161b27", borderColor: "#2d3748", flexShrink: 0, overflow: "hidden" }}
+      style={{
+        width: 220,
+        minWidth: 220,
+        height: '100%',
+        flexShrink: 0,
+        display: 'flex',
+        flexDirection: 'column',
+        background: '#161b27',
+        borderRight: '1px solid #2d3748',
+        overflow: 'hidden'
+      }}
     >
       <div className="flex items-center gap-3 px-4 py-4 border-b" style={{ borderColor: "#2d3748", minHeight: 60 }}>
         <div
