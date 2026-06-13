@@ -17,9 +17,9 @@ export default function App() {
   if (splash) return <Splash onDone={() => setSplash(false)} />;
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden" style={{ background: "#0f1117" }}>
+    <div style={{ display: "flex", height: "100vh", width: "100vw", minWidth: "960px", overflow: "hidden", background: "#0f1117" }}>
       <Sidebar />
-      <main className="flex-1 overflow-hidden">
+      <main className="flex-1 overflow-hidden" style={{ minWidth: 0 }}>
         <PageTransition>
           <Routes>
             <Route path="/"          element={<Dashboard />} />

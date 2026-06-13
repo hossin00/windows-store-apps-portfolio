@@ -57,3 +57,16 @@ html.light body { background-color: #f8fafc; color: #0f172a; }
 .card-lift:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.25); }
 
 .nav-link  { transition: color 200ms ease, background-color 200ms ease; }
+
+
+/* Desktop layout enforcement — minimum 960px wide */
+#root {
+  min-width: 960px;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+body {
+  min-width: 960px;
+  overflow-x: auto;
+}

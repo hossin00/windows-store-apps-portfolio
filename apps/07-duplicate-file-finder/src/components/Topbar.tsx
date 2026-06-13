@@ -19,9 +19,9 @@ export function Topbar({ title, subtitle, actions }: TopbarProps) {
       className="flex items-center justify-between px-6 border-b flex-shrink-0"
       style={{ height: 60, background: "#161b27", borderColor: "#2d3748" }}
     >
-      <div>
-        <h1 className="text-base font-semibold leading-tight" style={{ color: "#f1f5f9" }}>{title}</h1>
-        {subtitle && <p className="text-xs mt-0.5" style={{ color: "#64748b" }}>{subtitle}</p>}
+      <div style={{ minWidth: 0, flex: 1, overflow: "hidden" }}>
+        <h1 className="text-base font-semibold leading-tight truncate" style={{ color: "#f1f5f9", whiteSpace: "nowrap" }}>{title}</h1>
+        {subtitle && <p className="text-xs mt-0.5 truncate" style={{ color: "#64748b", whiteSpace: "nowrap" }}>{subtitle}</p>}
       </div>
       <div className="flex items-center gap-2">
         {actions}

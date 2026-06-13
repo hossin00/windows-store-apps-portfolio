@@ -23,7 +23,7 @@ export function Sidebar() {
   return (
     <aside
       className="flex flex-col h-full border-r"
-      style={{ width: 220, background: "#161b27", borderColor: "#2d3748", flexShrink: 0 }}
+      style={{ width: 220, minWidth: 220, background: "#161b27", borderColor: "#2d3748", flexShrink: 0, overflow: "hidden" }}
     >
       {/* Logo */}
       <div className="flex items-center gap-3 px-4 py-4 border-b" style={{ borderColor: "#2d3748", minHeight: 60 }}>
@@ -34,7 +34,7 @@ export function Sidebar() {
           <FileText size={16} color="white" strokeWidth={2.5} />
         </div>
         <div>
-          <div className="text-sm font-semibold leading-tight" style={{ color: "#f1f5f9" }}>PDF OCR Desk</div>
+          <div className="text-sm font-semibold leading-tight truncate" style={{ color: "#f1f5f9", whiteSpace: "nowrap" }}>PDF OCR Desk</div>
           <div className="text-xs" style={{ color: "#64748b" }}>v1.0.0</div>
         </div>
       </div>
@@ -75,7 +75,7 @@ function SidebarLink({
       <span style={{ color: active ? "#3b82f6" : undefined, flexShrink: 0 }}>
         <Icon size={17} strokeWidth={active ? 2.2 : 1.8} />
       </span>
-      <span className="flex-1 truncate">{label}</span>
+      <span className="flex-1 truncate" style={{ whiteSpace: "nowrap" }}>{label}</span>
       {active && <ChevronRight size={13} style={{ color: "#3b82f6", opacity: 0.7 }} />}
     </NavLink>
   );
