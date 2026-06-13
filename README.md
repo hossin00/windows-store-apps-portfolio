@@ -17,8 +17,8 @@
 | 05 | [QR Barcode Studio](./apps/05-qr-barcode-studio) — _emerald_ | ✅ Premium | com.kartdev.qrbarcodestudio |
 | 06 | [Clipboard Vault Pro](./apps/06-clipboard-vault-pro) — _violet_ | ✅ Premium | com.kartdev.clipboardvaultpro |
 | 07 | [Duplicate File Finder](./apps/07-duplicate-file-finder) — _red_ | ✅ Premium | com.kartdev.duplicatefilefinder |
-| 08 | Product Listing Builder | 🔜 Next | — |
-| 09 | Resume Studio Pro | 📋 Planned | — |
+| 08 | [Product Listing Builder](./apps/08-product-listing-builder) — _sky_ | ✅ Premium | com.kartdev.productlistingbuilder |
+| 09 | Resume Studio Pro | 🔜 Next | — |
 | 10 | Privacy File Cleaner | 📋 Planned | — |
 | 11 | Image to PDF Factory | 📋 Planned | — |
 | 12 | PDF Redact & Protect | 📋 Planned | — |
