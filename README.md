@@ -16,8 +16,8 @@
 | 04 | [Invoice PDF Builder](./apps/04-invoice-pdf-builder) — _amber_ | ✅ Premium | com.kartdev.invoicepdfbuilder |
 | 05 | [QR Barcode Studio](./apps/05-qr-barcode-studio) — _emerald_ | ✅ Premium | com.kartdev.qrbarcodestudio |
 | 06 | [Clipboard Vault Pro](./apps/06-clipboard-vault-pro) — _violet_ | ✅ Premium | com.kartdev.clipboardvaultpro |
-| 07 | Duplicate File Finder | 🔜 Next | — |
-| 08 | Product Listing Builder | 📋 Planned | — |
+| 07 | [Duplicate File Finder](./apps/07-duplicate-file-finder) — _red_ | ✅ Premium | com.kartdev.duplicatefilefinder |
+| 08 | Product Listing Builder | 🔜 Next | — |
 | 09 | Resume Studio Pro | 📋 Planned | — |
 | 10 | Privacy File Cleaner | 📋 Planned | — |
 | 11 | Image to PDF Factory | 📋 Planned | — |
